@@ -11,3 +11,12 @@ export const getPopular = async () => {
 
     return response.data.results;
 };
+
+export const getById = async (id:string) => {
+    const searchParams = new URLSearchParams({
+        api_key: API_KEY,
+    });
+    const url = `https://api.themoviedb.org/3/movie/${id}?${searchParams}`;
+    const response = await axios.get(url);
+    return response;
+};
