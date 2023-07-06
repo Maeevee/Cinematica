@@ -18,7 +18,7 @@ export const getById = async (id:string) => {
     });
     const url = `https://api.themoviedb.org/3/movie/${id}?${searchParams}`;
     const response = await axios.get(url);
-    return response;
+    return response.data;
 };
 
 export const getCast = async (id:string) => {
