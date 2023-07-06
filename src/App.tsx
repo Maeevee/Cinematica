@@ -4,6 +4,7 @@ import Movie from "./pages/Movie/Movie";
 import Favourite from "./pages/Favourite/Favourite";
 import Layout from "./components/Layout/Layout";
 import FilmPage from "./pages/FilmPage/FilmPage";
+import Cast from "./pages/FilmPage/pages/Cast/Cast";
 
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
         <Route path="movie" element={<Movie/>}/>
         <Route path="favourite" element={<Favourite/>}/>
         <Route path="movie/:filmId" element={<FilmPage/>}/>
+        <Route path="movie/:filmId" element={<FilmPage/>}>
+          <Route path="cast" element={<Cast/>}/>
+        </Route>
       </Route>
     </Routes>
   );
