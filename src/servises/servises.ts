@@ -18,5 +18,16 @@ export const getById = async (id:string) => {
     });
     const url = `https://api.themoviedb.org/3/movie/${id}?${searchParams}`;
     const response = await axios.get(url);
-    return response;
+    return response.data;
 };
+
+export const getCast = async (id:string) => {
+    const searchParams = new URLSearchParams({
+        api_key: API_KEY,
+        language: 'en-US',
+    });
+    const url = `https://api.themoviedb.org/3/movie/${id}/credits?${searchParams}`;
+    const response = await axios.get(url);
+    return response.data;
+};
+
