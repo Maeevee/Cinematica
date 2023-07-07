@@ -21,6 +21,9 @@ const FilmPage = () => {
 
     console.log(film);
 
+    const releaseDate = new Date(film?.release_date as string);
+    const year = new Date(releaseDate).getFullYear();
+
     const raiting = film?.vote_average as number;
     console.log(raiting);
 
