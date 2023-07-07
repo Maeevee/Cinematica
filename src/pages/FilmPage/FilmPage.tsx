@@ -66,15 +66,14 @@ const FilmPage = () => {
                             </ul>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
-        <ul>
-                        {navFilm.map(({id, text, href}) => <li style={{color:"white"}}  key={id}><Link to={href}>{text}</Link></li>)}
-                    </ul>
-                    <Outlet/>
+                )}
+            </div>
+            <ul>
+                {navFilm.map(({id, text, href}) => <li key={id}><Link to={href}>{text}</Link></li>)}
+            </ul>
+            <Outlet/>
                     </>
     )
-}
+};
 
 export default FilmPage
