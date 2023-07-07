@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet, useParams } from 'react-router-dom'
 import { getById } from '../../servises/servises';
-// import styles from "./FilmPage.module.css";
 import { IFilm } from '../../utils/interfaces';
 import { Link } from 'react-router-dom';
 import { navFilm } from '../../utils/navItems';
+import styles from "./FilmPage.module.css";
 
 const FilmPage = () => {
 
@@ -21,6 +21,29 @@ const FilmPage = () => {
 
     console.log(film);
 
+    const raiting = film?.vote_average as number;
+    console.log(raiting);
+
+    const generateStars = (raiting: number) => {
+        const stars = [];
+        const fiveStar = raiting / 2;
+        console.log(fiveStar);
+        
+        const raitingRound = Math.round(fiveStar);
+        console.log(raitingRound);
+        
+        for (let i = 0; i < 5; i++) {
+            if (i < raitingRound) {
+                stars.push(<span key={i} className={`text-yellow-400 text-4xl`}>★</span>)
+            } else {
+                stars.push(<span key={i} className={`text-gray-400 text-4xl`}>★</span>)
+            }
+        }
+        return stars;
+    }
+    console.log(generateStars);
+    
+
     return (
         <>
         <div>
@@ -32,6 +55,11 @@ const FilmPage = () => {
                         <h2>{film.title}</h2>
                         <div>Ganres:{film.genres?.map (({id, name}) => <p key={id}>{name}</p>)}</div>
                         <p>{film.overview}</p>
+                        <div>
+                            <ul className={`rounded-3xl`}>
+                                <li className={`rounded-b-xl ${styles.li} ${styles.liOdd} flex`}>{generateStars(raiting)}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             )}
