@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'
 import { getReview } from '../../../../servises/servises';
 import { useParams } from 'react-router';
 import { IReview } from '../../../../utils/interfaces';
