@@ -1,4 +1,5 @@
-import React from 'react'
+import { getReview } from '../../../../servises/servises';
+import { IReview } from '../../../../utils/interfaces';
 
 const Review = () => {
 
