@@ -6,11 +6,26 @@ import { IFilm } from '../../utils/interfaces';
 import { Link } from 'react-router-dom';
 import { navFilm } from '../../utils/navItems';
 import styles from "./FilmPage.module.css";
+import { useLocation } from 'react-router-dom';
+import { IPopular } from '../../utils/interfaces';
 
 const FilmPage = () => {
 
     const {filmId} = useParams();
     const [film, setFilm] = useState<null|IFilm>();
+    
+    const location = useLocation();
+    
+    const backLink = location?.state?.from ?? "/"
+
+    const handleSave = () => {
+        const storage = localStorage.getItem("favourite");
+        const data : IPopular[]|[] = JSON.parse (storage as string) ?? [];
+        const isInStorage = data.find(item => item?.id === film?.id)
+        localStorage.setItem("favourite", JSON.stringify([film]))
+
+        
+    }
     
     useEffect( () => {
         getById(filmId as string).then (response => {
@@ -45,7 +60,14 @@ const FilmPage = () => {
         return stars;
     }
     console.log(generateStars);
-    
+
+    // Tabs
+    const [selectedTab, setSelectedTab] = React.useState(1);
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        // event.preventDefault();
+        setSelectedTab(newValue);
+    };
 
     return (
         <>
