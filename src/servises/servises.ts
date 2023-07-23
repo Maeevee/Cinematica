@@ -47,5 +47,16 @@ export const getTrailers = async (id:string) => {
     });
     const url = `https://api.themoviedb.org/3/movie/${id}/videos?${searchParams}`;
     const response = await axios.get(url);
-    return response.data;
+    return response.data.results;
 };
+
+export const fetchByName = async (name:string) => {
+    const searchParams = new URLSearchParams({
+      api_key: API_KEY,
+      language: 'en-US',
+      query: `${name}`,
+    });
+    const url = `https://api.themoviedb.org/3/search/movie?${searchParams}`;
+    const response = await axios.get(url);
+    return response.data;
+  };
