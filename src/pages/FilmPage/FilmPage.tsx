@@ -1,13 +1,15 @@
 
 import React, { useEffect, useState } from 'react'
-import { Outlet, useParams } from 'react-router-dom'
+import { Outlet, useLocation, useParams, NavLink } from 'react-router-dom';
+import { Box, Tabs, Tab } from '@mui/material';
 import { getById } from '../../servises/servises';
 import { IFilm } from '../../utils/interfaces';
-import { Link } from 'react-router-dom';
 import { navFilm } from '../../utils/navItems';
 import styles from "./FilmPage.module.css";
 import { useLocation } from 'react-router-dom';
 import { IPopular } from '../../utils/interfaces';
+import { Link } from 'react-router-dom';
+
 
 const FilmPage = () => {
 
@@ -90,9 +92,14 @@ const FilmPage = () => {
                     </div>
                 )}
             </div>
-            <ul>
-                {navFilm.map(({id, text, href}) => <li key={id}><Link to={href}>{text}</Link></li>)}
-            </ul>
+            <button onClick={handleSave}>Save</button>
+            <div className={`mt-11`}><NavLink  to={backLink}>Go back</NavLink></div>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <Tabs value={selectedTab} onChange={handleChange} variant="fullWidth" aria-label="nav tabs example" centered>
+                    {navFilm.map(({id, text, href}) => (
+                        <Tab key={id} label={text} value={href} to={href} component={Link}/>))}
+                </Tabs>
+            </Box>
             <Outlet/>
                     </>
     )
