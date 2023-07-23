@@ -1,11 +1,13 @@
 
 import React, { useEffect, useState } from 'react'
 import { Outlet, useParams } from 'react-router-dom'
+import { Box, Tabs, Tab } from '@mui/material';
 import { getById } from '../../servises/servises';
 import { IFilm } from '../../utils/interfaces';
 import { Link } from 'react-router-dom';
 import { navFilm } from '../../utils/navItems';
 import styles from "./FilmPage.module.css";
+import { Link } from 'react-router-dom';
 
 const FilmPage = () => {
 

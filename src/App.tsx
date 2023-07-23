@@ -18,6 +18,7 @@ function App() {
         <Route path="movie" element={<Movie/>}/>
         <Route path="favourite" element={<Favourite/>}/>
         <Route path="movie/:filmId" element={<FilmPage/>}>
+          <Route index element={<Navigate to="cast"/>}/>
           <Route path="cast" element={<Cast/>}/>
           <Route path="review" element={<Review/>}/>
           <Route path="trailer" element={<Trailer/>}/>
