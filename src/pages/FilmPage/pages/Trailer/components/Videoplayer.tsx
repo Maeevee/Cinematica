@@ -1,18 +1,20 @@
 import Iframe from 'react-iframe';
+import { ITrailer } from '../../../../../utils/interfaces';
 
-export const Videoplayer = ({ data }: { data: Array<any> }) => {
+interface Props{data:ITrailer[]};
+
+export const Videoplayer = ({ data }: Props) => {
   return (
     <ul>
-      {data.map(({ id, key, name }: { id: string; key: string; name: string }) => (
-        <li key={id}>
-          <div style={{ overflow: 'hidden' }}>
+      {data.map(({ key, name }) => (
+        <li key={key}>
             <Iframe
               title={name}
               url={`https://www.youtube.com/embed/${key}?rel=0&showinfo=0&autoplay=1`}
               width="100%"
               height="320px"
+              overflow="cover"
             />
-          </div>
         </li>
       ))}
     </ul>
