@@ -37,7 +37,7 @@ export const getReview = async (id:string) => {
     });
     const url = `https://api.themoviedb.org/3/movie/${id}/reviews?${searchParams}`;
     const response = await axios.get(url);
-    return response.data;
+    return response.data.results;
 };
 
 export const getTrailers = async (id:string) => {

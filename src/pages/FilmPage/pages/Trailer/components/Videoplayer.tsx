@@ -19,4 +19,4 @@ export const Videoplayer = ({ data }: { data: Array<any> }) => {
   );
 };
 
-
+export {};

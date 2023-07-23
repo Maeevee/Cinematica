@@ -60,7 +60,7 @@ const FilmPage = () => {
                                 <li className={`${styles.li} ${styles.liEven}`}><span className={`font-bold`}>Ganres:</span>{film.genres?.map (({id, name}, index) => <span key={id}> {name}{index !== film.genres.length - 1 && ','}</span>)}</li>
                                 <li className={`${styles.li} ${styles.liOdd}`}><span className={`font-bold`}>Duration:</span> {film.runtime} min</li>
                                 <li className={`${styles.li} ${styles.liEven}`}><span className={`font-bold`}>Countrie:</span> {film.production_countries?.map (({id, name}, index) => <span key={id}> {name}{index !== film.production_countries.length - 1 && ','}</span>)}</li>
-                                <li className={`${styles.li} ${styles.liOdd}`}><span className={`font-bold`}>Language:</span> {film.spoken_languages?.map (({id, english_name}, index) => <span key={id}> {english_name}{index !== film.genres.length - 1 && ','}</span>)}</li>
+                                <li className={`${styles.li} ${styles.liOdd}`}><span className={`font-bold`}>Language:</span> {film.spoken_languages?.map (({id, english_name}, index) => <span key={id}> {english_name}{index !== film.spoken_languages.length - 1 && ','}</span>)}</li>
                                 <li className={`${styles.li} ${styles.liEven}`}><span className={`font-bold`}>Synopsis:</span> {film.overview}</li>
                                 <li className={`rounded-b-xl ${styles.li} ${styles.liOdd} flex`}>{generateStars(raiting)}</li>
                             </ul>
