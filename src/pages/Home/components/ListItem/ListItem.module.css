@@ -1,0 +1,7 @@
+.poster {
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* Add any other styles related to the poster image */
+    height: calc();
+    overflow-x: hidden;
+  }
