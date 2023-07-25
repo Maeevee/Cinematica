@@ -6,7 +6,6 @@ import { getById } from '../../servises/servises';
 import { IFilm } from '../../utils/interfaces';
 import { navFilm } from '../../utils/navItems';
 import styles from "./FilmPage.module.css";
-import { useLocation } from 'react-router-dom';
 import { IPopular } from '../../utils/interfaces';
 import { Link } from 'react-router-dom';
 
