@@ -3,6 +3,9 @@ import { fetchByName } from '../../servises/servises';
 import { IPopular } from '../../utils/interfaces';
 import { useSearchParams } from 'react-router-dom';
 import List from '../Home/components/List/List';
+import styles from './Movie.module.css';
+import { FaSearch } from 'react-icons/fa';
+import { FaTrashAlt } from 'react-icons/fa';
 
 const Movie = () => {
   const [KeyWord, setKeyWord] = useState('')
@@ -37,6 +40,11 @@ const Movie = () => {
 console.log(movies);
 
   return (
+    <div  className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.searchBar}>
+        <button className={styles.searchBarButtonSearch} type='submit' ><FaSearch /></button>
+        <input className={styles.searchBarInput} ref={inputRef} type='text' value={KeyWord} onChange={handleInputChange}/>
+        <button className={styles.searchBarButtonDelite} type='button' onClick={handleInputClear}><FaTrashAlt /></button>
       </form>
       <List movieList={movies}/>
 
