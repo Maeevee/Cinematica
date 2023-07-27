@@ -58,5 +58,5 @@ export const fetchByName = async (name:string) => {
     });
     const url = `https://api.themoviedb.org/3/search/movie?${searchParams}`;
     const response = await axios.get(url);
-    return response.data;
+    return response.data.results;
   };
