@@ -37,11 +37,6 @@ const Movie = () => {
 console.log(movies);
 
   return (
-    <div  className='pt-40 pl-5'>
-      <form onSubmit={handleSubmit}>
-        <input className='bg-black' ref={inputRef} type='text' value={KeyWord} onChange={handleInputChange}/>
-        <button type='submit' >Search</button>
-        <button type='button' onClick={handleInputClear}>Delite</button>
       </form>
       <List movieList={movies}/>
 
