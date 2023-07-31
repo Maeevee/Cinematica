@@ -15,6 +15,8 @@ const FilmPage = () => {
     const {filmId} = useParams();
     const [film, setFilm] = useState<null|IFilm>();
     
+    const [buttonVariant, setButtonVariant] = useState<null|boolean>(null)
+
     const location = useLocation();
     
     const backLink = location?.state?.from ?? "/"
@@ -22,10 +24,16 @@ const FilmPage = () => {
     const handleSave = () => {
         const storage = localStorage.getItem("favourite");
         const data : IPopular[]|[] = JSON.parse (storage as string) ?? [];
-        const isInStorage = data.find(item => item?.id === film?.id)
-        localStorage.setItem("favourite", JSON.stringify([film]))
-
-        
+        const isInStorage = data.find(item => item?.id === film?.id) 
+        if (!isInStorage) {
+            localStorage.setItem("favourite", JSON.stringify([...data, film]))
+            setButtonVariant(true)
+        } 
+        if (isInStorage) {
+            const newData = data.filter(item => item?.id !== film?.id)
+            localStorage.setItem("favourite", JSON.stringify([...newData]))
+            setButtonVariant(false)
+        }
     }
     
     useEffect( () => {
@@ -33,23 +41,28 @@ const FilmPage = () => {
             const filmData = response; 
             setFilm(filmData); 
         }).catch(error => console.log(error));
-    }, [filmId])
-
-    console.log(film);
+        
+        const storage = localStorage.getItem("favourite");
+        const data : IPopular[]|[] = JSON.parse (storage as string) ?? [];
+        const isInStorage = data.find(item => item?.id === film?.id) 
+        if (!isInStorage) {
+            setButtonVariant(false)
+        } 
+        if (isInStorage) {
+            setButtonVariant(true)
+        }
+    }, [film?.id, filmId])
 
     const releaseDate = new Date(film?.release_date as string);
     const year = new Date(releaseDate).getFullYear();
 
     const raiting = film?.vote_average as number;
-    console.log(raiting);
 
     const generateStars = (raiting: number) => {
         const stars = [];
         const fiveStar = raiting / 2;
-        console.log(fiveStar);
         
         const raitingRound = Math.round(fiveStar);
-        console.log(raitingRound);
         
         for (let i = 0; i < 5; i++) {
             if (i < raitingRound) {
@@ -60,7 +73,6 @@ const FilmPage = () => {
         }
         return stars;
     }
-    console.log(generateStars);
 
     // Tabs
     const [selectedTab, setSelectedTab] = React.useState(1);
@@ -91,7 +103,7 @@ const FilmPage = () => {
                     </div>
                 )}
             </div>
-            <button onClick={handleSave}>Save</button>
+            <button onClick={handleSave}>{buttonVariant? 'delete' : 'save'}</button>
             <div className={`mt-11`}><NavLink  to={backLink}>Go back</NavLink></div>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={selectedTab} onChange={handleChange} variant="fullWidth" aria-label="nav tabs example" centered>
