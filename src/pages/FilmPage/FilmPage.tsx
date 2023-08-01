@@ -41,7 +41,6 @@ const FilmPage = () => {
             const filmData = response; 
             setFilm(filmData); 
         }).catch(error => console.log(error));
-        
         const storage = localStorage.getItem("favourite");
         const data : IPopular[]|[] = JSON.parse (storage as string) ?? [];
         const isInStorage = data.find(item => item?.id === film?.id) 
