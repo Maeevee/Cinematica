@@ -35,21 +35,17 @@ const FilmPage = () => {
         }).catch(error => console.log(error));
     }, [filmId])
 
-    console.log(film);
 
     const releaseDate = new Date(film?.release_date as string);
     const year = new Date(releaseDate).getFullYear();
 
     const raiting = film?.vote_average as number;
-    console.log(raiting);
 
     const generateStars = (raiting: number) => {
         const stars = [];
         const fiveStar = raiting / 2;
-        console.log(fiveStar);
         
         const raitingRound = Math.round(fiveStar);
-        console.log(raitingRound);
         
         for (let i = 0; i < 5; i++) {
             if (i < raitingRound) {
@@ -60,7 +56,6 @@ const FilmPage = () => {
         }
         return stars;
     }
-    console.log(generateStars);
 
     // Tabs
     const [selectedTab, setSelectedTab] = React.useState(1);
