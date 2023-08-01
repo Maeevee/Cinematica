@@ -9,43 +9,53 @@ const ListItem = ({film}: Props) => {
 
     const location = useLocation();
     console.log(location);
-
-    const [hovered, setHovered] = useState(false);
-
-    const handleMouseEnter = () => {
-        setHovered(true);
-    };
+    console.log(film);
     
-    const handleMouseLeave = () => {
-        setHovered(false);
-    };
+
+    // const [hovered, setHovered] = useState(false);
+
+    // const handleMouseEnter = () => {
+    //     setHovered(true);
+    // };
     
-    const imagePath = hovered ? film.backdrop_path : film.poster_path;
+    // const handleMouseLeave = () => {
+    //     setHovered(false);
+    // };
     
-    const containerStyle: React.CSSProperties = {
-        backgroundImage: `url(https://image.tmdb.org/t/p/w300/${film.backdrop_path})`,
-        width: hovered ? '200%' : '100%',
-        height: hovered ? '50%' : '100%',
-        transition: 'width 0.5s ease',
-        borderRadius: '20px',
-      };
+    // const imagePath = hovered ? film.backdrop_path : film.poster_path;
     
-      // Correct type for imageStyle
-      const imageStyle: React.CSSProperties = {
-         // Add any other styles you want to apply to the image
-      };
+    // const containerStyle: React.CSSProperties = {
+    //     backgroundImage: `url(https://image.tmdb.org/t/p/w300/${film.backdrop_path})`,
+    //     width: hovered ? '200%' : '100%',
+    //     height: hovered ? '50%' : '100%',
+    //     transition: 'width 0.5s ease',
+    //     borderRadius: '20px',
+    //   };
+    
+    //   const imageStyle: React.CSSProperties = {
+
+    //   };
 
 
+    const releaseDate = new Date(film?.release_date as string);
+    const year = new Date(releaseDate).getFullYear();
     
     
     return (
-        <li className={`p-5 w-64 m-0`}>
+        <li className={`p-5 w-64 m-0 `}>
             <Link to={`/movie/${film.id}`} state={{from:location}}>
-                <div style={containerStyle} className={styles.poster}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}>
-                    <img alt={film.title} src={`https://image.tmdb.org/t/p/w300/${film.poster_path}`} style={imageStyle} className={`rounded-xl hover:opacity-0 hover:h-1/2 hover:ease-in duration-300`}/>
+                <div className={styles.poster}>
+                    <img alt={film.title} src={`https://image.tmdb.org/t/p/w300/${film.poster_path}`} className={`rounded-xl`}/>
+                    <div className={styles.posterInfo}>
+                        <h2 className={`text-white text-2xl font-bold`}>{film.title}</h2>
+                        <p>{year}</p>
+                        <p>{film.vote_average}</p>
+                        <button>Watch</button>
+                        
+                        
 
+
+                    </div>
                 </div>
                 {/* <h2>{film.title}</h2> */}
             </Link>
