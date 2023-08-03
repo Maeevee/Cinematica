@@ -15,7 +15,17 @@ const FilmPage = () => {
     const {filmId} = useParams();
     const [film, setFilm] = useState<null|IFilm>();
     
-    const [buttonVariant, setButtonVariant] = useState<null|boolean>(null)
+    const [buttonVariant, setButtonVariant] = useState(() => {
+        const storage = localStorage.getItem("favourite");
+        const data : IPopular[]|[] = JSON.parse (storage as string) ?? [];
+        const isInStorage = data.find(item => item?.id === film?.id) 
+        if (!isInStorage) {
+            return false
+        } 
+        if (isInStorage) {
+            return true
+        }
+    })
 
     const location = useLocation();
     
