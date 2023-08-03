@@ -9,7 +9,7 @@ export const getPopular = async () => {
     const url = `https://api.themoviedb.org/3/trending/movie/week?${searchParams}`;
     const response = await axios.get(url);
 
-    return response.data.results;
+    return response.data;
 };
 
 export const getById = async (id:string) => {
