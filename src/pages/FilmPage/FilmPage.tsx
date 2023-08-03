@@ -51,6 +51,9 @@ const FilmPage = () => {
             const filmData = response; 
             setFilm(filmData); 
         }).catch(error => console.log(error));
+    }, [filmId])
+
+    useEffect( () => {
         const storage = localStorage.getItem("favourite");
         const data : IPopular[]|[] = JSON.parse (storage as string) ?? [];
         const isInStorage = data.find(item => item?.id === film?.id) 
@@ -60,7 +63,7 @@ const FilmPage = () => {
         if (isInStorage) {
             setButtonVariant(true)
         }
-    }, [film?.id, filmId])
+    }, [film?.id])
 
     const releaseDate = new Date(film?.release_date as string);
     const year = new Date(releaseDate).getFullYear();
