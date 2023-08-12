@@ -1,9 +1,29 @@
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    transition: ease-in 0.1s;
+    padding: 20px 30px;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    position: fixed;
+    width: 100%;
+    /* background-image: url('/src/assets/bg_lg.png');
+    background-size: cover;
+    background-position: top; */
+    z-index: 1000;
+
+}
+
 .logo {
-    font-family: 'Tapestry', cursive;
+    font-weight: 1000;
+    font-size: 50px;
 }
 .nav {
-    font-family: 'Bacasime Antique', serif;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-between;
 }
 .scrolled {
-    background-color: #1f2937;
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.3);
 }
