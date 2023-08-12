@@ -1,4 +1,5 @@
 import ReactPaginate from 'react-paginate';
+import styles from './Pagination.module.css';
 
 interface Props {setPageNumber: any, totalPages: number, currentPage: number}
 
@@ -8,6 +9,8 @@ function PaginatedItems({ setPageNumber, totalPages, currentPage }:Props) {
         setPageNumber({page: event.selected + 1})
     };
 
+    const marginPages = window.innerWidth > 900 ? 4 : 1;
+    const pageRange = window.innerWidth > 480 ? 2 : 1;
     return (
         <>
             <ReactPaginate className={styles.pagination}
@@ -32,7 +35,7 @@ function PaginatedItems({ setPageNumber, totalPages, currentPage }:Props) {
                 nextLinkClassName={styles.link}
             />
         </>
-      );
-    }
+    );
+}
 
     export default PaginatedItems
