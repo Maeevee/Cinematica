@@ -13,7 +13,6 @@ const Trailer = () => {
   useEffect ( () =>{
     getTrailers(filmId as string).then (setTrailers).catch(console.log)
   }, [filmId])
-  console.log(trailers);
   
   return (
     <div>

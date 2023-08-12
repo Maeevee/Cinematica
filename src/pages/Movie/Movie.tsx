@@ -37,7 +37,6 @@ const Movie = () => {
     event.preventDefault()
     setSearchParams({movie : KeyWord})
   }
-console.log(movies);
 
   return (
     <div  className={styles.container}>

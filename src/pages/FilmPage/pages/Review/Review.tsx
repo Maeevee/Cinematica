@@ -12,8 +12,6 @@ const Review = () => {
     getReview(filmId as string).then (setReviews).catch(console.log)
   }, [filmId])
 
-  console.log(reviews);
-
   if (reviews.length === 0) {
     return <div>Loading...</div>;
   }
