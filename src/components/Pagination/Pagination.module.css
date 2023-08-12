@@ -32,3 +32,22 @@
     padding: 8px 15px;
 }
 
+/* Tablet styles */
+@media (max-width: 768px) {
+    .pagination {
+        font-size: 15px;
+    }
+    
+}
+
+  /* Mobile styles */
+@media (max-width: 480px) {
+    .item, .next, .previous {
+        padding: 5px 0;
+    }
+    .link {
+        padding: 5px 12px;
+    }
+}
+
+
