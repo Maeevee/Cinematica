@@ -2,9 +2,10 @@ import axios from "axios";
 
 const API_KEY = "ccc96aebb2a609de96c023b8f3e91c19";
 
-export const getPopular = async () => {
+export const getPopular = async (page:string) => {
     const searchParams = new URLSearchParams({
-    api_key: API_KEY,
+    api_key: API_KEY, 
+    page: page,
     });
     const url = `https://api.themoviedb.org/3/trending/movie/week?${searchParams}`;
     const response = await axios.get(url);
