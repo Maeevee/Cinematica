@@ -6,18 +6,19 @@ import { useSearchParams } from 'react-router-dom';
 import PaginatedItems from '../../components/Pagination/Pagination';
 
 
+
 const Home = () => {
 
   const [films, setFilms] = useState<[]|IPopular[]>([]);
 
   const [totalPages, setTotalPage] = useState(0)
 
-  useEffect( () => {
-    getPopular().then(date => {setFilms(date.results); setTotalPage(date.total_pages)}).catch(error => console.log(error))
-}, [])
-
 const [searchParems, setSearchParems] = useSearchParams();
 const pageNumber = Number(searchParems.get('page') ?? 1)
+
+  useEffect( () => {
+    getPopular(pageNumber.toString()).then(date => {setFilms(date.results); setTotalPage(date.total_pages)}).catch(error => console.log(error))
+}, [pageNumber])
 
   return (
     <div>
