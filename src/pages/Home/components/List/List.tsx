@@ -1,7 +1,9 @@
 
+import { Grid } from '@mui/material';
 import { IPopular } from '../../../../utils/interfaces';
 import ListItem from '../ListItem/ListItem';
-import styles from './List.module.scss';
+import styles from './List.module.css';
+
 
 interface Props{movieList: IPopular[]|[]}
 
