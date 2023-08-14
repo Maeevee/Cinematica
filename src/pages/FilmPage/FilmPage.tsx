@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Outlet, useLocation, useParams, NavLink } from 'react-router-dom';
 import { Box, Tabs, Tab } from '@mui/material';
 import { getById } from '../../servises/servises';
@@ -30,6 +30,8 @@ const FilmPage = () => {
     const location = useLocation();
     
     const backLink = location?.state?.from ?? "/"
+
+    const backLocation = useRef(backLink)
 
     const handleSave = () => {
         const storage = localStorage.getItem("favourite");
@@ -116,7 +118,8 @@ const FilmPage = () => {
                 )}
             </div>
             <button onClick={handleSave}>{buttonVariant? 'delete' : 'save'}</button>
-            <div className={`mt-11`}><NavLink  to={backLink}>Go back</NavLink></div>
+            {/* @ts-ignore */}
+            <div className={`mt-11`}><NavLink  to={backLocation.current}>Go back</NavLink></div>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={selectedTab} onChange={handleChange} variant="fullWidth" aria-label="nav tabs example" centered>
                     {navFilm.map(({id, text, href}) => (
