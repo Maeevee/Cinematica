@@ -9,7 +9,7 @@ const Nav = () => {
 
     useEffect(() => {
         const onScroll = () => {
-            if (window.scrollY > 30) {
+            if (window.scrollY > 10) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
@@ -22,9 +22,9 @@ const Nav = () => {
     }, []);
 
     return (
-        <div className={`${scrolled ? styles.scrolled : ""} flex justify-between transition ease-in-out p-5 text-3xl fixed w-full `}>
-            <h1 className={`${styles.logo} text-4xl`}>Cinematica</h1>
-            <nav className={`flex space-x-10 text-2xl ${styles.nav}`}>{navItems.map(({id, text, href}) => <Link to={href} key={id}>{text}</Link>)}</nav>
+        <div className={`${scrolled ? styles.scrolled : ""} ${styles.navBar}`}>
+            <h1 className={styles.logo}>CINEMATICA</h1>
+            <nav className={styles.nav}>{navItems.map(({id, text, href}) => <Link to={href} key={id}>{text}</Link>)}</nav>
         </div>
     )
 }
