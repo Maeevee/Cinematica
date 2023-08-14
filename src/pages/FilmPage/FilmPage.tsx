@@ -104,7 +104,7 @@ const FilmPage = () => {
                             <img className={`rounded-xl mr-10`} alt={film.title} src={`https://image.tmdb.org/t/p/w300/${film.poster_path}`}/>
                         <div>
                             <h2 className={`${styles.title}`}>{film.title}</h2>
-                            <ul className={`rounded-3xl`}>
+                            <ul className={styles.list}>
                                 <li className={`rounded-t-xl ${styles.li} ${styles.liOdd}`}><span className={`font-bold`}>Year:</span> {year}</li>
                                 <li className={`${styles.li} ${styles.liEven}`}><span className={`font-bold`}>Ganres:</span>{film.genres?.map (({id, name}, index) => <span key={id}> {name}{index !== film.genres.length - 1 && ','}</span>)}</li>
                                 <li className={`${styles.li} ${styles.liOdd}`}><span className={`font-bold`}>Duration:</span> {film.runtime} min</li>
