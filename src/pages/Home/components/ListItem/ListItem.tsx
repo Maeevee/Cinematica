@@ -1,19 +1,37 @@
-import { Link, useLocation } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import styles from './ListItem.module.css'
 import { IPopular } from '../../../../utils/interfaces'
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Grid } from '@mui/material'
+import { useEffect, useRef, useState } from 'react'
 
 interface Props{film: IPopular}
 
 const ListItem = ({film}: Props) => {
 
     const location = useLocation();
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [height, setHeight] = useState<number>(0);
 
     const releaseDate = new Date(film?.release_date as string);
     const year = new Date(releaseDate).getFullYear();
+
+    function updateHeight() {
+        if (containerRef.current) {
+            const containerWidth = containerRef.current.offsetWidth;
+            const calculatedHeight = containerWidth * 1.5;
+            setHeight(calculatedHeight);
+        }
+    }
+
+    useEffect(() => {
+        updateHeight();
+        window.addEventListener('resize', updateHeight);
+        return () => {
+            window.removeEventListener('resize', updateHeight);
+        };
+    }, []);
+    
     
     
     return (
