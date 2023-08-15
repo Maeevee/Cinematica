@@ -4,7 +4,7 @@ import ListItem from '../Home/components/ListItem/ListItem';
 
 const Favourite = () => {
 
-  const [favourite, setFavourite] = useState<[]|IPopular[]>(() => {
+  const [favourite] = useState<[]|IPopular[]>(() => {
     const storage = localStorage.getItem("favourite")
     const data = JSON.parse(storage as string) ?? [];
     return data;
