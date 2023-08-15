@@ -16,7 +16,6 @@ const Review = () => {
     return <div>Loading...</div>;
   }
 
-  const rating = (reviews[0] as IReview).author_details.rating as number;
   const generateStars = (rating: number) => {
     const stars = [];
     const fiveStar = rating / 2;
@@ -37,8 +36,8 @@ const Review = () => {
 
   return (
     <ul className={`p-5`}>
-      {reviews.map((review, rating) =>
-      <li className={`border-b-2 border-cyan-700/30`} key={rating}>
+      {reviews.map((review, index) =>
+      <li className={`border-b-2 border-cyan-700/30`} key={index}>
         <img className={`rounded-full w-16 h-16`} src={review.author_details?.avatar_path?.startsWith("/https://secure.gravatar.com/avatar/") ? review.author_details.avatar_path.slice(1) : `https://image.tmdb.org/t/p/w300/${review.author_details.avatar_path}`} alt={review.author_details?.username} onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
               (e.target as HTMLImageElement).src =
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbWMHsOFSpe0SQ9au-xUAPizVVualR_yqqMg&usqp=CAU';
@@ -48,7 +47,7 @@ const Review = () => {
           <h3>{review.author_details.username}</h3>
           <p> {new Date(review.created_at).toLocaleDateString()}</p>
         </div>
-        <p>{generateStars(rating)}</p>
+        <p>{generateStars(review.author_details.rating)}</p>
         <p>{review.content}</p>
       </li>)}
     </ul>
