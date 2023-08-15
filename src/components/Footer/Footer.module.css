@@ -1,0 +1,52 @@
+.container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 200px 0 0 0;
+    backdrop-filter: blur(20px);
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    flex-direction: column;
+    margin-top: auto;
+}
+
+.logo {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    justify-content: baseline;
+    margin: 0 auto;
+}
+
+.icon {
+    fill: #ffffff99;
+    transform: rotate(45deg);
+    font-size: 22px;
+}
+
+.logoText {
+    font-size: 32px;
+    line-height: 35px;
+    font-weight: 100;
+}
+
+.aboutUs {
+    margin: 20px 40px;
+    border-bottom:1px solid rgba(0, 0, 0, 0.5);
+    padding-bottom: 20px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.copr {
+    font-weight: 100;
+    font-size: 17px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        border-radius: 150px 0 0 0;
+    }
+}
+
+
