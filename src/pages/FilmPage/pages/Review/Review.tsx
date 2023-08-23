@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { getReview } from '../../../../servises/servises';
 import { useParams } from 'react-router';
 import { IReview } from '../../../../utils/interfaces';
+import styles from './Review.module.css';
+import Rating from '../../../../components/Rating/Rating'
+
 
 const Review = () => {
 
@@ -16,38 +19,24 @@ const Review = () => {
     return <div>Loading...</div>;
   }
 
-  const generateStars = (rating: number) => {
-    const stars = [];
-    const fiveStar = rating / 2;
-    console.log(fiveStar);
-    
-    for (let i = 0; i < 5; i++) {
-        if (i < fiveStar) {
-            stars.push(<span key={i} className={`text-yellow-400 text-2xl`}>★</span>)
-        } else {
-            stars.push(<span key={i} className={`text-gray-400 text-2xl`}>★</span>)
-        }
-    }
-    return stars;
-}
-
-
-
-
   return (
-    <ul className={`p-5`}>
+    <ul className={styles.reviewContainer}>
       {reviews.map((review, index) =>
-      <li className={`border-b-2 border-cyan-700/30`} key={index}>
-        <img className={`rounded-full w-16 h-16`} src={review.author_details?.avatar_path?.startsWith("/https://secure.gravatar.com/avatar/") ? review.author_details.avatar_path.slice(1) : `https://image.tmdb.org/t/p/w300/${review.author_details.avatar_path}`} alt={review.author_details?.username} onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-              (e.target as HTMLImageElement).src =
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbWMHsOFSpe0SQ9au-xUAPizVVualR_yqqMg&usqp=CAU';
-              (e.target as HTMLImageElement).alt = 'placeholder';
-            }} />
-        <div>
-          <h3>{review.author_details.username}</h3>
-          <p> {new Date(review.created_at).toLocaleDateString()}</p>
+      <li className={styles.li} key={index}>
+        <div className={styles.reviewHeadContainer}>
+          <div className={styles.reviewData}>
+            <img className={`rounded-full w-16 h-16`} src={review.author_details?.avatar_path?.startsWith("/https://secure.gravatar.com/avatar/") ? review.author_details.avatar_path.slice(1) : `https://image.tmdb.org/t/p/w300/${review.author_details.avatar_path}`} alt={review.author_details?.username} onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                  (e.target as HTMLImageElement).src =
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbWMHsOFSpe0SQ9au-xUAPizVVualR_yqqMg&usqp=CAU';
+                  (e.target as HTMLImageElement).alt = 'placeholder';
+                }} />
+            <div>
+              <h3>{review.author_details.username}</h3>
+              <p className={styles.reviewCreatedAt}> {new Date(review.created_at).toLocaleDateString()}</p>
+            </div>
+          </div>
+          <p className={styles.rating}><Rating rating={review.author_details.rating}/></p>
         </div>
-        <p>{generateStars(review.author_details.rating)}</p>
         <p>{review.content}</p>
       </li>)}
     </ul>
