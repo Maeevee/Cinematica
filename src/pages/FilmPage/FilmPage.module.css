@@ -1,19 +1,142 @@
+.filmPageContainer {
+    margin-bottom: 90px;
+}
+.filmInfoContainer {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 110px 30px 90px;
+}
+
+.flexContainer {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.listContainer {
+    width: 100%;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 450px;
+}
+
+.imageContainer {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+
+.roundedImg {
+    border-radius: 0.75rem;
+    width: auto;
+    height: fit-content;
+    max-width: fit-content;
+    object-fit: contain;
+}
+
+.gradientOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        black
+    );
+    border-radius: 0.75rem;
+}
+
+.SaveDeleteButton, .GoBackButton {
+    fill: aliceblue;
+    font-size: 32px;
+    position: absolute;
+    bottom: 10px;
+}
+
+.SaveDeleteButton path, .GoBackButton path {
+    stroke: #ffffff;
+    stroke-width: 1px;
+}
+
+.GoBackButtonContainer {
+    position: absolute;
+    width: 32px;
+}
+
+.SaveDeleteButton {
+    right: 10px;
+}
+
+.GoBackButton {
+    rotate: 180deg;
+    left: 10px;
+}
+
 .title {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
     font-weight: 1000;
     font-style: italic;
+    line-height: 2.3rem;
 }
-.text {
-    font-size: 1.2rem;
-}
+
 .list {
     backdrop-filter: blur(20px);
-    border-radius: 10px;
+    border-radius: 0.75rem;
     border: 1px solid #00000029;
+    min-height: 350px;
 }
 .li {
-    min-height: 2.5rem;
-    padding: 10px;
-    padding-left: 20px;
+    margin: auto 20px;
+    /* border-bottom: 1px solid #00000029; */
+    padding-bottom: 5px;
 }
+
+.li span:first-child {
+    font-weight: bold;
+}
+
+.roundedTopLi {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    padding-top: 10px;
+}
+
+.roundedBottomLi {
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    font-size: 36px;
+    line-height: 40px;
+    padding-bottom: 10px;
+    border-bottom: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.filmPageContainer .box {
+    border: none;
+    backdrop-filter: blur(20px);
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+    border: 1px solid #00000029;
+    margin: 0 30px;
+
+}
+
+
+.tabs .tab {
+    color: white;
+    font-family: 'Ysabeau Infant', sans-serif;
+    border: none;
+}
+
+
