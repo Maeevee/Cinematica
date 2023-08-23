@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     transition: ease-in 0.1s;
-    padding: 20px 30px;
+    padding: 25px 30px;
     font-size: 1.875rem;
     line-height: 2.25rem;
     position: fixed;
@@ -11,7 +11,6 @@
     background-size: cover;
     background-position: top; */
     z-index: 1000;
-
 }
 
 .logo {
@@ -22,6 +21,7 @@
     font-size: 24px;
     display: flex;
     justify-content: space-between;
+    gap: 50px;
 }
 .scrolled {
     backdrop-filter: blur(20px);
