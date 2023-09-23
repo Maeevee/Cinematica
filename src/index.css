@@ -24,13 +24,12 @@ body {
 }
 
 a.css-1ujykiq-MuiButtonBase-root-MuiTab-root.Mui-selected {
-  color: rgba(255, 255, 255, 0.6);
-  
+  color: rgba(255, 255, 255, 0.988);
+  font-weight: 800;
 }
 
 span.MuiTabs-indicator.css-1aquho2-MuiTabs-indicator {
   background-color:#00000088;
-  ;
 }
 
 code {
