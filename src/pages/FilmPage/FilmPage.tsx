@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react'
 import { Outlet, useLocation, useParams, NavLink } from 'react-router-dom';
 import { Box, Tabs, Tab } from '@mui/material';
@@ -18,9 +17,9 @@ const FilmPage = () => {
 
     const location = useLocation();
     
-    const backLink = location?.state?.from ?? "/"
+    const backLink = location?.state?.from ?? "/";
 
-    const backLocation = useRef(backLink)
+    const backLocation = useRef(backLink);
     
     useEffect( () => {
         getById(filmId as string).then (response => {
@@ -40,6 +39,19 @@ const FilmPage = () => {
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         // event.preventDefault();
         setSelectedTab(newValue);
+    };
+
+    const boxStyles = {
+        borderBottom: '1px solid #ddd',
+        borderColor: 'divider',
+        borderRadius: location.pathname.includes('/cast') ||
+                      location.pathname.includes('/review') ||
+                      location.pathname.includes('/trailer')
+            ? '3rem 3rem 0 0' // Apply rounded corners only at the bottom
+            : '3rem',         // Apply rounded corners to all sides
+        border: 'none',              // Remove the border
+        backdropFilter: 'blur(20px)', // Apply backdrop-filter
+        margin: '0 30px',            // Apply margin
     };
 
     return (
@@ -100,7 +112,7 @@ const FilmPage = () => {
                 </div>
             )}
             </div>
-            <Box className={styles.box} sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Box className={styles.box} sx={boxStyles}>
                 <Tabs className={styles.tabs} value={selectedTab} onChange={handleChange} variant="fullWidth" aria-label="nav tabs example" centered>
                     {navFilm.map(({id, text, href}) => (
                         <Tab className={styles.tab} key={id} label={text} value={href} to={href} component={Link}/>))}

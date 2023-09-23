@@ -125,11 +125,20 @@
 .filmPageContainer .box {
     border: none;
     backdrop-filter: blur(20px);
-    border-top-left-radius: 3rem;
-    border-top-right-radius: 3rem;
     border: 1px solid #00000029;
     margin: 0 30px;
 
+}
+
+.roundedTop {
+    border-top-left-radius:  3rem;
+    border-top-right-radius:  3rem;
+    border-bottom-left-radius:  none;
+    border-bottom-right-radius:  none;
+}
+
+.rounded {
+    border-radius: 3rem;
 }
 
 
@@ -137,6 +146,8 @@
     color: white;
     font-family: 'Ysabeau Infant', sans-serif;
     border: none;
+    border-top-left-radius:  3rem;
+    border-top-right-radius:  3rem;
 }
 
 
