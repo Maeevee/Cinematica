@@ -47,11 +47,10 @@ const FilmPage = () => {
         borderRadius: location.pathname.includes('/cast') ||
                       location.pathname.includes('/review') ||
                       location.pathname.includes('/trailer')
-            ? '3rem 3rem 0 0' // Apply rounded corners only at the bottom
-            : '3rem',         // Apply rounded corners to all sides
-        border: 'none',              // Remove the border
-        backdropFilter: 'blur(20px)', // Apply backdrop-filter
-        margin: '0 30px',            // Apply margin
+            ? '3rem 3rem 0 0'
+            : '3rem',
+        backdropFilter: 'blur(20px)',
+        margin: '0 30px',
     };
 
     return (
@@ -115,7 +114,7 @@ const FilmPage = () => {
             <Box className={styles.box} sx={boxStyles}>
                 <Tabs className={styles.tabs} value={selectedTab} onChange={handleChange} variant="fullWidth" aria-label="nav tabs example" centered>
                     {navFilm.map(({id, text, href}) => (
-                        <Tab className={styles.tab} key={id} label={text} to={href} component={Link}/>))}
+                        <Tab className={styles.tab} key={id} label={text} value={href} to={href} component={Link}/>))}
                 </Tabs>
             </Box>
             <Outlet/>
