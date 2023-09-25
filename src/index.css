@@ -23,6 +23,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* MUI Tabs */
 a.css-1ujykiq-MuiButtonBase-root-MuiTab-root.Mui-selected {
   color: rgba(255, 255, 255, 0.988);
   font-weight: 800;
