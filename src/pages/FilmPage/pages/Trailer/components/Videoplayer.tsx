@@ -10,7 +10,7 @@ export const Videoplayer = ({ data }: Props) => {
     <div className={styles.gridContainer}>
       <Grid container  spacing={{ xs: 2, sm: 2, md: 3 , lg: 5}} columns={{ xs: 12, sm: 12, md: 12, lg: 9 }} >
         {data.map(({ key, name }) => (
-          <Grid className={styles.gridItem} item xs={12} sm={6} md={4} lg={3}  key={key}>
+          <Grid className={styles.gridItem} item xs={12} sm={6} md={6} lg={3}  key={key}>
               <Iframe className={styles.iframe}
                 title={name}
                 url={`https://www.youtube.com/embed/${key}?rel=0&showinfo=0&autoplay=1`}
