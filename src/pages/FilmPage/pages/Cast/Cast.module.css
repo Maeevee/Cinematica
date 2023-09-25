@@ -1,0 +1,32 @@
+.castContainer {
+    backdrop-filter: blur(20px);
+    margin: 0 30px;
+    padding: 20px;
+    border-left: 1px solid #00000029;
+    border-right: 1px solid #00000029;
+    border-bottom: 1px solid #00000029;
+    border-bottom-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+}
+
+.gridItem {
+    /* width: 300px; */
+}
+
+.castItem {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    align-items: center;
+    border-radius: 80px;
+    
+}
+
+.castItem img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: top;
+}

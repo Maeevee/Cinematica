@@ -115,7 +115,7 @@ const FilmPage = () => {
             <Box className={styles.box} sx={boxStyles}>
                 <Tabs className={styles.tabs} value={selectedTab} onChange={handleChange} variant="fullWidth" aria-label="nav tabs example" centered>
                     {navFilm.map(({id, text, href}) => (
-                        <Tab className={styles.tab} key={id} label={text} value={href} to={href} component={Link}/>))}
+                        <Tab className={styles.tab} key={id} label={text} to={href} component={Link}/>))}
                 </Tabs>
             </Box>
             <Outlet/>

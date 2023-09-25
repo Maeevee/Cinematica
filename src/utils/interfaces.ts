@@ -4,4 +4,5 @@ export interface IFilm{backdrop_path: string; poster_path:string; title: string;
 
 export interface IReview{author_details:{avatar_path: string; username: string; rating: number}; content: string; created_at: string}
 
+export interface ICast{name: string; profile_path: string}
 export interface ITrailer{key: string; name: string}
