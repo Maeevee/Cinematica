@@ -39,3 +39,12 @@
 .rating {
     font-size: 27px;
 }
+
+@media (max-width: 480px) {
+    .reviewContainer {
+        margin: 0 5px;
+    }
+    .rating {
+        font-size: 20px;
+    }
+}
