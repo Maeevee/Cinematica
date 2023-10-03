@@ -24,7 +24,7 @@ const Cast = () => {
     <div className={styles.castContainer}>
       <Grid container spacing={{ xs: 2, sm: 2, md: 3 , lg: 5}} columns={{ xs: 12, sm: 12, md: 12, lg: 10 }} >
           {cast.map((actor, index) => (
-            <Grid className={styles.gridItem} item xs={12} sm={6} md={4} lg={2}  key={index}>
+            <Grid className={styles.gridItem} item xs={6} sm={6} md={4} lg={2}  key={index}>
               <div className={styles.castItem}>
                 <img
                   src={
