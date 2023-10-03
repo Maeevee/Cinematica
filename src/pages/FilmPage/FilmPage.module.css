@@ -92,6 +92,8 @@
     border-radius: 0.75rem;
     border: 1px solid #00000029;
     min-height: 350px;
+    scrollbar-width: 20px;
+    overflow: auto;
 }
 .li {
     margin: auto 20px;
@@ -124,6 +126,7 @@
 
 .filmPageContainer .box {
     border: 1px solid #00000029;
+    margin: 0 30px;
 }
 
 .roundedTop {
@@ -146,4 +149,41 @@
     border-top-right-radius:  3rem;
 }
 
+@media (max-width: 800px) {
+    .filmInfoContainer {
+        padding: 90px 5px 60px;
+    }
+    .flexContainer {
+        gap: 10px;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .listContainer {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filmInfoContainer {
+        padding: 70px 5px 60px;
+    }
+    .flexContainer {
+        flex-wrap: wrap;
+        gap: 10;
+    }
+    .imageContainer {
+        width: 100%;
+    }
+    .roundedImg {
+        width: 100%;
+        max-width: none;
+    }
+    .title {
+        text-align: center;
+    }
+    .filmPageContainer .box {
+        margin: 0 5px;
+    }
+}
 
