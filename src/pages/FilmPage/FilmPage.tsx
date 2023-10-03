@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useRef } from 'react'
 import { Outlet, useLocation, useParams, NavLink } from 'react-router-dom';
 import { Box, Tabs, Tab } from '@mui/material';
@@ -18,9 +17,9 @@ const FilmPage = () => {
 
     const location = useLocation();
     
-    const backLink = location?.state?.from ?? "/"
+    const backLink = location?.state?.from ?? "/";
 
-    const backLocation = useRef(backLink)
+    const backLocation = useRef(backLink);
     
     useEffect( () => {
         getById(filmId as string).then (response => {
@@ -42,13 +41,26 @@ const FilmPage = () => {
         setSelectedTab(newValue);
     };
 
+    const boxStyles = {
+        borderBottom: '1px solid #ddd',
+        borderColor: 'divider',
+        borderRadius: location.pathname.includes('/cast') ||
+                      location.pathname.includes('/review') ||
+                      location.pathname.includes('/trailer')
+            ? '3rem 3rem 0 0'
+            : '3rem',
+        backdropFilter: 'blur(20px)',
+    };
+
+    const poster = window.innerWidth > 480 ? film?.poster_path : film?.backdrop_path
+
     return (
         <div className={styles.filmPageContainer}>
             <div className={styles.filmInfoContainer}>
             {film && (
                 <div className={styles.flexContainer}>
                     <div className={styles.imageContainer}>
-                        <img className={styles.roundedImg} alt={film.title} src={`https://image.tmdb.org/t/p/w300/${film.poster_path}`} />
+                        <img className={styles.roundedImg} alt={film.title} src={`https://image.tmdb.org/t/p/w300/${poster}`} />
                         <div className={styles.gradientOverlay}></div>
                         {film && <SaveDeleteButton film={film} className={styles.SaveDeleteButton}/>}
                         <div className={styles.GoBackButtonContainer}><NavLink  to={backLocation.current}><svg className={styles.GoBackButton} xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z"/></svg></NavLink></div>
@@ -100,7 +112,7 @@ const FilmPage = () => {
                 </div>
             )}
             </div>
-            <Box className={styles.box} sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Box className={styles.box} sx={boxStyles}>
                 <Tabs className={styles.tabs} value={selectedTab} onChange={handleChange} variant="fullWidth" aria-label="nav tabs example" centered>
                     {navFilm.map(({id, text, href}) => (
                         <Tab className={styles.tab} key={id} label={text} value={href} to={href} component={Link}/>))}

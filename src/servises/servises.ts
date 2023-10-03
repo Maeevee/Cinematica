@@ -29,7 +29,7 @@ export const getCast = async (id:string) => {
     });
     const url = `https://api.themoviedb.org/3/movie/${id}/credits?${searchParams}`;
     const response = await axios.get(url);
-    return response.data;
+    return response.data.cast;
 };
 
 export const getReview = async (id:string) => {
