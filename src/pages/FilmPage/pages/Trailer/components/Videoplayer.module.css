@@ -16,3 +16,9 @@
 .iframe {
     border-radius: 2.2rem;
 }
+
+@media (max-width: 480px) {
+    .gridContainer{
+        margin: 0 5px;
+    }
+}
