@@ -7,7 +7,8 @@
 :root {
   --text-color: #e5ded4;
 }
-body {
+
+html body {
   background-color: rgba(11, 11, 11, 0.96);
   background-image: url('/src/assets/bg_lg.png');
   background-repeat: no-repeat;
@@ -22,6 +23,40 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* MUI Nav */
+
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation4.MuiAppBar-root.MuiAppBar-colorPrimary.MuiAppBar-positionFixed.mui-fixed.css-11b3ww9-MuiPaper-root-MuiAppBar-root {
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+@media (max-width: 600px) {
+  .MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation4.MuiAppBar-root.MuiAppBar-colorPrimary.MuiAppBar-positionFixed.mui-fixed.css-11b3ww9-MuiPaper-root-MuiAppBar-root {
+      backdrop-filter: blur(20px);
+      background-color: rgba(0, 0, 0, 0.5);  
+  }
+}
+
+div .css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--text-color);
+  backdrop-filter: blur(20px);
+}
+
+h6.css-rtpxwx-MuiTypography-root, div.css-p7bec2-MuiTypography-root {
+  font-family: 'Ysabeau Infant', sans-serif;
+  font-size: 35px;
+  font-weight: 800;
+}
+
+span.MuiTypography-root.MuiTypography-body1.MuiListItemText-primary.css-10hburv-MuiTypography-root, button.css-1kkpk3h-MuiButtonBase-root-MuiButton-root {
+  font-family: 'Ysabeau Infant', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+
 
 /* MUI Tabs */
 a.css-1ujykiq-MuiButtonBase-root-MuiTab-root.Mui-selected {
