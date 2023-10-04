@@ -24,49 +24,46 @@ html body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* MUI Nav */
-
-
-.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation4.MuiAppBar-root.MuiAppBar-colorPrimary.MuiAppBar-positionFixed.mui-fixed.css-11b3ww9-MuiPaper-root-MuiAppBar-root {
+ /* MUI Nav */
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation4.MuiAppBar-root.MuiAppBar-colorPrimary.MuiAppBar-positionFixed.mui-fixed {
   background-color: rgba(0, 0, 0, 0.5); 
 }
 
 @media (max-width: 600px) {
-  .MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation4.MuiAppBar-root.MuiAppBar-colorPrimary.MuiAppBar-positionFixed.mui-fixed.css-11b3ww9-MuiPaper-root-MuiAppBar-root {
+  .MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation4.MuiAppBar-root.MuiAppBar-colorPrimary.MuiAppBar-positionFixed.mui-fixed {
       backdrop-filter: blur(20px);
       background-color: rgba(0, 0, 0, 0.5);  
   }
 }
 
-div .css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft {
   background-color: rgba(0, 0, 0, 0.7);
   color: var(--text-color);
   backdrop-filter: blur(20px);
 }
 
-h6.css-rtpxwx-MuiTypography-root, div.css-p7bec2-MuiTypography-root {
+h6.MuiTypography-root.MuiTypography-h6, div.MuiTypography-root.MuiTypography-h6 {
   font-family: 'Ysabeau Infant', sans-serif;
   font-size: 35px;
   font-weight: 800;
 }
 
-span.MuiTypography-root.MuiTypography-body1.MuiListItemText-primary.css-10hburv-MuiTypography-root, button.css-1kkpk3h-MuiButtonBase-root-MuiButton-root {
+span.MuiTypography-root.MuiTypography-body1.MuiListItemText-primary, button.MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium {
   font-family: 'Ysabeau Infant', sans-serif;
   font-size: 24px;
   font-weight: 400;
 }
 
 
-
 /* MUI Tabs */
-a.css-1ujykiq-MuiButtonBase-root-MuiTab-root.Mui-selected {
+a.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.MuiTab-fullWidth.Mui-selected {
   color: rgba(255, 255, 255, 0.988);
   font-weight: 800;
 }
 
-span.MuiTabs-indicator.css-1aquho2-MuiTabs-indicator {
+span.MuiTabs-indicator {
   background-color:#00000088;
-}
+} 
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
