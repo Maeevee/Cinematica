@@ -16,29 +16,29 @@ import Button from '@mui/material/Button';
 import { Link, useLocation } from "react-router-dom";
 import { navItems } from "../../utils/navItems";
 import styles from "./Nav.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 const drawerWidth = 240;
 
 const Nav = () => {
-    const [scrolled, setScrolled] = useState(false);
+    const [scrolled] = useState(false);
 
     const location = useLocation();
 
-    useEffect(() => {
-        const onScroll = () => {
-            if (window.scrollY > 10) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        };
+    // useEffect(() => {
+    //     const onScroll = () => {
+    //         if (window.scrollY > 10) {
+    //             setScrolled(true);
+    //         } else {
+    //             setScrolled(false);
+    //         }
+    //     };
     
-        window.addEventListener('scroll', onScroll);
+    //     window.addEventListener('scroll', onScroll);
     
-        return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+    //     return () => window.removeEventListener('scroll', onScroll);
+    // }, []);
 
 //   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
