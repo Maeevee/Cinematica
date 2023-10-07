@@ -26,19 +26,19 @@ const Nav = () => {
 
     const location = useLocation();
 
-    // useEffect(() => {
-    //     const onScroll = () => {
-    //         if (window.scrollY > 10) {
-    //             setScrolled(true);
-    //         } else {
-    //             setScrolled(false);
-    //         }
-    //     };
+    useEffect(() => {
+        const onScroll = () => {
+            if (window.scrollY > 10) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
     
-    //     window.addEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll);
     
-    //     return () => window.removeEventListener('scroll', onScroll);
-    // }, []);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
 //   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
