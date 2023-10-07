@@ -16,13 +16,13 @@ import Button from '@mui/material/Button';
 import { Link, useLocation } from "react-router-dom";
 import { navItems } from "../../utils/navItems";
 import styles from "./Nav.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 const drawerWidth = 240;
 
 const Nav = () => {
-    const [scrolled, setScrolled] = useState(false);
+    const [scrolled] = useState(false);
 
     const location = useLocation();
 
